@@ -1,0 +1,28 @@
+<h1>Post New Event</h1>
+<br>
+<hr>
+<% if @event.errors.any? %>
+  <% @event.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+    <br>
+  <% end %>
+<% end %>
+
+<br>
+<%= form_for @event do |f| %>
+  <br>
+  <%= f.label :event_name %>
+  <br>
+  <%= f.text_field :event_name %>
+  <br>
+  <%= f.label :address %>
+  <br>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label :picture_url %>
+  <br>
+  <%= f.text_field :picture %>
+  <br>
+  <br>
+  <%= f.submit "Create Event" %>
+<% end %>
