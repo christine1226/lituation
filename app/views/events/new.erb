@@ -17,12 +17,27 @@
   <br>
   <%= f.label :address %>
   <br>
-  <%= f.password_field :password %>
+  <%= f.text_field :address %>
+  <br>
+  <%= f.label :content %>
+  <br>
+  <%= f.text_area :content %>
   <br>
   <%= f.label :picture_url %>
   <br>
   <%= f.text_field :picture %>
   <br>
+  <%= f.label :start_date_and_time %>
+  <br>
+  <%= f.datetime_select :start_datetime %>
+  <br>
+  <%= f.label :end_date_and_time %>
+  <br>
+  <%= f.datetime_select :end_datetime %>
+  <br>
+  <%= f.label :user %>
+  <br>
+  <%= f.collection_select :user_id, @users, :id, :name %>
   <br>
   <%= f.submit "Create Event" %>
 <% end %>
