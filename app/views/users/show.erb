@@ -1,1 +1,17 @@
 <h1>Hi, <%= @user.name.titleize %>!</h1>
+
+<img src="<%= @user.picture %>" alt="no employee photo... yet">
+
+<h4>Update Your Profile Picture</h4>
+<%= form_for @user do |f| %>
+<%= f.label "Picture_url" %>
+<%= f.text_field :picture, placeholder: "enter url here" %>
+<%= f.submit "Update" %>
+<br>
+<br>
+<%= link_to "Create An Event", new_event_path %>
+<br>
+<br>
+<br>
+
+<% end %>
