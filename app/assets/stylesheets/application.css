@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* Css Styling Here  */
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+
+body {
+  background: url(city.jpeg);
+  background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+	background-color: #999;
+}
+
+label {
+  color: white;
+  text-align: center;
+  font-size: 30pt
+}
+
+.new_user {
+  text-align: center;
+
+}
+input[type=text] {
+  border-radius: 25px;
+  background: 2px solid;
+  padding: 10px;
+  width: 400px;
+  height: 5px;
+  font-size: 15pt;
+  margin-bottom: 80px;
+  color: white;
+  border-color: blue;
+}
+
+input[type=password] {
+  border-radius: 25px;
+  background: 2px solid;
+  padding: 10px;
+  width: 400px;
+  height: 5px;
+  margin-bottom: 80px;
+  border-color: blue;
+}
+
+input[type=submit] {
+  border-radius: 25px;
+  background: blue;
+  width: 200px;
+  height: 35px;
+  margin-bottom: 80px;
+  opacity: 0.9;
+  border-color: blue;
+}
+
+/* External Css Styling */
