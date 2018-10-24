@@ -34,7 +34,6 @@ class ApplicationController < ActionController::Base
 
 
   #authorizes user that is logging in is the same user currently signed in
-=======
 
   def authorized?(user_id)
     logged_in_user_id == user_id
