@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate!, only:[:create]
   def new
     @event = Event.new
     @users = User.all
@@ -29,8 +30,17 @@ class EventsController < ApplicationController
 
   end
 
+  private
+
   def event_params
     params.require(:event).permit(:event_name, :address, :picture, :start_datetime, :end_datetime, :content, :user_id, :category_id)
   end
+
+  def authenticate!
+   if !@logged_in
+     flash[:errors] = ["Unable to vote unless logged in"]
+     redirect_to login_path
+   end
+ end
 
 end

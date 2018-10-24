@@ -20,17 +20,14 @@ ActiveRecord::Schema.define(version: 2018_10_24_172706) do
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "category_id"
+    t.integer "cat_id"
     t.text "content"
     t.string "event_name"
     t.string "address"
     t.string "picture"
-    t.datetime "start_datetime"
-    t.datetime "end_datetime"
+    t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_events_on_category_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
