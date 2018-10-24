@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  config.time_zone = 'Eastern Time (US & Canada)'
   # before_action :create_event
 
   # def create_event
@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   def logged_in_id
     session[:user_id]
   end
-
 
 
   def authorized?(user_id)

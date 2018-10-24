@@ -10,8 +10,18 @@ User.create(name: 'alice', password: 'password')
 User.create(name: 'bob', password: 'password')
 User.create(name: 'eve', password: 'password')
 
-
-
+# Category.new(name: 'kids')
+# Category.new(name: 'party')
+# Category.new(name: 'fitness / health')
+# Category.new(name: 'sports')
+# Category.new(name: 'movies')
+# Category.new(name: 'parades')
+# Category.new(name: 'plays')
+# Category.new(name: 'comedy')
+# Category.new(name: 'animals')
+# Category.new(name: 'tech')
+# Category.new(name: 'education')
+# Category.new(name: 'museums')
 
 #default profile pic
 # "https://res.cloudinary.com/airwotever/image/upload/v1395969197/default-profile-pic_hkmqpe.png"
