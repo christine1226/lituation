@@ -1,13 +1,12 @@
-
-<% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |msg| %>
+<% if @new_user.errors.any? %>
+  <% @new_user.errors.full_messages.each do |msg| %>
     <p><%= msg %></p>
     <br>
   <% end %>
 <% end %>
 
 <br>
-<%= form_for @user do |f| %>
+<%= form_for @new_user do |f| %>
   <br>
   <%= f.label :name %>
   <br>

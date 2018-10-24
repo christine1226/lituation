@@ -8,17 +8,16 @@ class ApplicationController < ActionController::Base
   #
   #   end
   # end
-
+  private
   @logged_in = !!@user
+  @message = flash[:message]
+  @errors = flash[:errors]
 
-  # @message = flash[:message]
-  # @errors = flash[:errors]
-
-  def log_in_user(user_id)
+  def log_in(user_id)
     session[:user_id] = user_id
   end
 
-  def logged_in_id
+  def logged_in_user_id
     session[:user_id]
   end
 
