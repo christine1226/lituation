@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @users = User.all
+    @categories = Category.all
   end
 
   def create
@@ -11,6 +12,7 @@ class EventsController < ApplicationController
       redirect_to @event
     else
       @users = User.all
+      @categories = Category.all
       render :new
     end
   end
