@@ -10,38 +10,27 @@
 
   </head>
 
-
   <header>
-  <nav>
-    <ul>
-      <% if @logged_in %>
-      <li>
-        <%= link_to "Log out", '/logout' %>
-      </li>
-      <li>
-        Logged in as: <%= @user.username %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "Register", '/signup' %>
-      </li>
-      <li>
-        <%= link_to "Log in", '/login' %>
-      </li>
-      <% end %>
-    </ul>
-  </nav>
-  <% if @errors %>
-  <ul>
-    <% @errors.each do |error| %>
-      <li>
-        <%= error %>
-      </li>
-    <% end %>
-  </ul>
-  <% end %>
-</header>
-
+    <nav>
+       <ul>
+         <% if @logged_in %>
+         <li>
+           <%= link_to "Log out", "" %>
+         </li>
+         <li>
+           Logged in as: <%= @user.username %>
+         </li>
+         <% else %>
+         <li>
+           <%= link_to "Register", new_user_path %>
+         </li>
+         <li>
+           <%= link_to "Log in", "" %>
+         </li>
+         <% end %>
+       </ul>
+     </nav>
+  </header>
 
   <body>
     <div class="topnav">
