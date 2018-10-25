@@ -5,21 +5,23 @@
   <% end %>
 <% end %>
 
-<br>
-<%= form_for @new_user do |f| %>
   <br>
-  <%= f.label :name %>
-  <br>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :password %>
-  <br>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.label :picture_url %>
-  <br>
-  <%= f.text_field :picture %>
-  <br>
-  <br>
-  <%= f.submit "Create User" %>
-<% end %>
+  <%= form_for @new_user do |f| %>
+    <br>
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :picture_url %>
+    <br>
+    <%= f.text_field :picture %>
+    <br>
+    <br>
+    <%= f.submit "Create User" %>
+  <% end %>
+
+<img src="../app/assets/images/fire.png" alt="">

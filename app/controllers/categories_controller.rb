@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @events = Events.all
-    @user
+    @events = Event.all
+    @user = User.all
   end
 end
