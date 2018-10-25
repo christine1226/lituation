@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
-  # before_action :authenticate!, only:[:create]
-  before_action :get_event, only:[:show, :edit, :update, :destroy]
+  before_action :authenticate!
+
   def new
     @event = Event.new
     @users = User.all
@@ -10,8 +10,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    # @event[:start_datetime].asctime.in_time_zone('Eastern Time (US & Canada)')
+    # @event[:end_datetime].asctime.in_time_zone('Eastern Time (US & Canada)')
     if @event.save
-      redirect_to @event
+      redirect_to categories_path
     else
       @users = User.all
       @categories = Category.all
@@ -36,16 +38,12 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:event_name, :address, :picture, :start_datetime, :end_datetime, :content, :user_id, :category_id)
   end
- #
- #  def authenticate!
- #   if !@logged_in
- #     flash[:errors] = ["Unable to vote unless logged in"]
- #     redirect_to login_path
- #   end
- # end
 
- def get_event
-   @event = Event.find(params[:id])
+  def authenticate!
+   if logged_in_user_id.nil?
+     flash[:errors] = ["Please login to do that"]
+     redirect_to login_path
+   end
  end
 
 end

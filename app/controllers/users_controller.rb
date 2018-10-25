@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :get_user, only:[:show, :edit, :update, :destroy, :create_event]
-
+  before_action :authenticate!, only: [:show, :edit, :update]
 
   def new
     @new_user = User.new
   end
-
 
   def create
     @user = User.new(user_params)
@@ -18,27 +16,6 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
-
-  def new_event
-   @event = Event.new
-   @user = User.find(params[:id])
-   @categories = Category.all
- end
-
-  def create_event
-  @user = User.find(params[:id])
-  @categories = Category.all
-  @event = Event.create(:event_name => event_params[:event_name], :address => event_params[:address],
-  :picture => event_params[:picture], :start_datetime => event_params[:start_datetime], :end_datetime => event_params[:end_datetime],
-  :content => event_params[:content], :user_id => event_params[:user_id], :category_id => event_params[:category_id])
-  if @event.valid?
-    @event.save
-    redirect_to create_user_event
-  else
-    render 'new_event'
-  end
-end
-
 
   def show
     @user = User.find(params[:id])
@@ -72,18 +49,11 @@ end
     params.require(:user).permit(:name, :password, :picture)
   end
 
-  def event_params
-    params.require(:event).permit(:event_name, :address, :picture, :start_datetime, :end_datetime, :content, :user_id, :category_id)
-  end
-
-  def get_user
-    @user = User.find(params[:id])
-  end
-
-  # def authenticate!
-  #  if !@logged_in
-  #    flash[:errors] = ["Unable to vote unless logged in"]
-  #    redirect_to login_path
-  #  end
+  def authenticate!
+   if logged_in_user_id.nil?
+     flash[:errors] = ["Please login to do that"]
+     redirect_to login_path
+   end
+ end
 
 end

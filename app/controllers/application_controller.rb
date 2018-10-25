@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   
   helper_method :logged_in?
 
-  config.time_zone = 'Eastern Time (US & Canada)'
+  # config.time_zone = 'Eastern Time (US & Canada)'
 
   # before_action :create_event
   #
@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :logged_in_user_id, :logged_in?
+
 
 #this method matches user in the database to user that is signing in
   def log_in(user_id)
@@ -45,5 +46,13 @@ class ApplicationController < ActionController::Base
   def authorized?(user_id)
     logged_in_user_id == user_id
   end
+
+  def authenticate!
+   if logged_in_user_id.nil?
+     flash[:errors] = ["Please login to do that"]
+     redirect_to login_path
+   end
+ end
+
 
 end

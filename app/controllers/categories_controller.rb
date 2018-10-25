@@ -1,7 +1,10 @@
 class CategoriesController < ApplicationController
 
   def index
+
+    @categories = Category.all
     @events = Event.all
-    @user = User.all
+
   end
+
 end
