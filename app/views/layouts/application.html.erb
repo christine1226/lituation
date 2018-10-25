@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Lituation</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,45 +13,48 @@
 
 
   <header>
-  <nav>
-    <ul>
-      <% if @logged_in %>
-      <li>
-        <%= link_to "Log out", '/logout' %>
-      </li>
-      <li>
-        Logged in as: <%= @user.username %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "Register", '/signup' %>
-      </li>
-      <li>
-        <%= link_to "Log in", '/login' %>
-      </li>
-      <% end %>
-    </ul>
-  </nav>
-  <% if @errors %>
-  <ul>
-    <% @errors.each do |error| %>
-      <li>
-        <%= error %>
-      </li>
-    <% end %>
-  </ul>
-  <% end %>
+
 </header>
 
 
   <body>
-    <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-    </div>
 
+    <ul id="nav">
+        <li><%= link_to image_tag("goodfire.png", :alt => "fire", height: 35, width: 35), categories_path(@events)%></li>
+        <li><%= link_to image_tag("graphic-design.png", :alt => "create", height: 35, width: 35), categories_path(@events)%></li>
+        <li><%= link_to image_tag("student.png", :alt => "profile", height: 35, width: 35), '/users/:id' %></li>
+        <div id="login">
+          <% if logged_in? %>
+          <li>
+            <%= link_to "Log out", '/logout', method: :delete %>
+          </li>
+          <li class="logged">
+            Logged in as: <%= @user.name %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to "Register", '/signup' %>
+          </li>
+          <li>
+            <%= link_to "Log in", '/login' %>
+          </li>
+          <% end %>
+        </ul>
+      </nav>
+      <% if @errors %>
+      <ul>
+        <% @errors.each do |error| %>
+          <li>
+            <%= error %>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
+        </div>
+      </ul>
+      <div class="top-margin">
+
+      </div>
     <%= yield %>
   </body>
 </html>

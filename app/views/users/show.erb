@@ -1,9 +1,12 @@
-<h1>Hi, <%= @user.name.titleize %>!</h1>
+<div class="white_background">
 
-<img src="<%= @user.picture %>" alt="no employee photo... yet">
-<br>
-<%= link_to "Create An Event", new_event_path %>
-<br>
-<br>
-<%= link_to "Add Profile Picture", edit_user_path %>
-  <%= button_to  "Log Out", logout_path, method: 'delete' %>
+  <div class="Profile">
+    <h1>Hi, <%= @user.name.titleize %>!</h1>
+
+    <img src="<%= @user.picture %>" alt="no employee photo... yet">
+
+    <%= button_to "Create An Event", new_event_path %>
+
+    <%= button_to "Add Profile Picture", edit_user_path %>
+  </div>
+</div>

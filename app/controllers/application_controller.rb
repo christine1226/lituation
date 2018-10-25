@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
   #     @logged_in = !!@user
   # end
 
+  protect_from_forgery with: :exception
+
+  helper_method :logged_in_user_id, :logged_in?
 
 #this method matches user in the database to user that is signing in
   def log_in(user_id)
@@ -31,6 +34,9 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
   end
 
+  def logged_in?
+   !!logged_in_user_id
+  end
 
 
   #authorizes user that is logging in is the same user currently signed in
