@@ -2,10 +2,9 @@
   <li> <%= cat.name %> </li>
 <% end %>
 
-
-<!-- # <%= form_for @category do |f| %>
-# <%= f.collection_select :category_id, @categories, :id, :name%>
-# <% end %> -->
+ <%= form_for @category do |f| %>
+ <%= f.collection_select :category_id, @categories, :id, :name%>
+ <% end %>
 
 <% @events.each do |event| %>
   <h5> Category: <%= event.category.name %> </h5> <br>
