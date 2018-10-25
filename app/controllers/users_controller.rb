@@ -8,8 +8,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    img = Cloudinary::Uploader.upload(params[:user][:picture])
+    @user.picture= img['url']
     if @user.save
       log_in(@user.id)
+
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
@@ -28,6 +32,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    img = Cloudinary::Uploader.upload(params[:user][:picture])
+    @user.picture= img['url']
+
     @user.update(user_params)
     redirect_to @user
   end
