@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
 
+  protect_from_forgery with: :exception
+  
+  helper_method :logged_in?
+
   # config.time_zone = 'Eastern Time (US & Canada)'
 
   # before_action :create_event
@@ -14,6 +18,9 @@ class ApplicationController < ActionController::Base
   #     @logged_in = !!@user
   # end
 
+  protect_from_forgery with: :exception
+
+  helper_method :logged_in_user_id, :logged_in?
 
 
 #this method matches user in the database to user that is signing in
@@ -29,6 +36,11 @@ class ApplicationController < ActionController::Base
   def log_out
     session[:user_id] = nil
   end
+
+  def logged_in?
+   !!logged_in_user_id
+  end
+
 
   #authorizes user that is logging in is the same user currently signed in
   def authorized?(user_id)

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :authenticate!, only: [:show, :edit, :update]
 
   def new
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = Event.all
+    @event = Event.all
   end
 
   def edit
@@ -30,6 +31,17 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to @user
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    Event.all.each do |event|
+    if @user.id == event.user_id
+      event.destroy
+    end
+  end
+  @user.destroy
+  redirect_to @user
+end
 
   private
 

@@ -1,7 +1,7 @@
-<h4>Update Your Profile Picture</h4>
+<h1>Update Your Profile Picture</h1>
 <%= form_for @user do |f| %>
-<%= f.label "Picture_url" %>
-<%= f.text_field :picture, placeholder: "enter url here" %>
+<h3><%= f.label "Picture" %></h3>
+<%= f.file_field :picture %>
 <%= f.submit "Update" %>
 <% end %>
 <br>
