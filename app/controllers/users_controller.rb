@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate!, only: [:show, :edit, :update]
+
   def new
     @new_user = User.new
   end
@@ -13,7 +15,6 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
-
 
   def show
     @user = User.find(params[:id])
@@ -35,5 +36,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :picture)
   end
+
+  def authenticate!
+   if logged_in_user_id.nil?
+     flash[:errors] = ["Please login to do that"]
+     redirect_to login_path
+   end
+ end
 
 end

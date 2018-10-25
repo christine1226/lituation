@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  #
-
-  config.time_zone = 'Eastern Time (US & Canada)'
+  # config.time_zone = 'Eastern Time (US & Canada)'
 
   # before_action :create_event
   #
@@ -15,6 +13,7 @@ class ApplicationController < ActionController::Base
   #     @errors = flash[:errors]
   #     @logged_in = !!@user
   # end
+
 
 
 #this method matches user in the database to user that is signing in
@@ -31,11 +30,17 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
   end
 
-
-
   #authorizes user that is logging in is the same user currently signed in
   def authorized?(user_id)
     logged_in_user_id == user_id
   end
+
+  def authenticate!
+   if logged_in_user_id.nil?
+     flash[:errors] = ["Please login to do that"]
+     redirect_to login_path
+   end
+ end
+
 
 end
