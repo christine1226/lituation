@@ -1,12 +1,14 @@
 
-<div class="top-margin">
-  <%= form_tag login_path do |f| %>
-    <br>
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
-    <br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Log in" %>
-     <% end %>
+<div class="center">
+  <h1 class="center-headings">Login</h1>
+    <%= form_tag login_path do |f| %>
+      <br>
+      <%= label_tag :name %>
+      <%= text_field_tag :name %>
+      <br>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <br>
+      <%= submit_tag "Log in" %>
+    <% end %>
 </div>
