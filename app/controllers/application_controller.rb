@@ -2,11 +2,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-
   helper_method :logged_in?, :logged_in_user, :log_out
 
   # config.time_zone = 'Eastern Time (US & Canada)'
-
 
 
 #this method matches user in the database to user that is signing in
