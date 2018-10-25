@@ -4,7 +4,8 @@
   <div class="Profile">
     <h1>Hi, <%= @user.name.titleize %>!</h1>
 
-    <img src="<%=@user.picture %>" alt="">
+
+      <img src="<%=@user.picture %>" alt="">
 
 
     <%= button_to "Add Profile Picture", edit_user_path(@user), :method => :get %>
