@@ -5,7 +5,6 @@
   <% end %>
 <% end %>
 
-  <br>
   <%= form_for @new_user do |f| %>
     <br>
     <%= f.label :name %>
@@ -18,7 +17,7 @@
     <br>
     <%= f.label :picture_url %>
     <br>
-    <%= f.text_field :picture %>
+    <%= f.file_field :picture %>
     <br>
     <br>
     <%= f.submit "Create User" %>
