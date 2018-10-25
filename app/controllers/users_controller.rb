@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate!, only: [:show, :edit, :update]
+  before_action :authenticate!, only: [:show, :edit, :update, :destroy]
 
   def new
     @new_user = User.new
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(logged_in_user_id)
     img = Cloudinary::Uploader.upload(params[:user][:picture])
     @user.picture= img['url']
     @user.update(user_params)

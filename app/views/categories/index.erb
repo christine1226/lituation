@@ -1,13 +1,17 @@
+
+Today is <%= @date %>
+
 <%= form_tag '/categories', method: :get do %>
   <%= collection_select :event, :category_id, @categories, :id, :name%>
   <%= submit_tag "Search by category" %>
 <% end %>
 
+
 <% @events.each do |event| %>
   <h5> Category: <%= event.category.name %> </h5> <br>
   <h3> Event: <%= event.event_name %> </h3> <br>
   <p> At: <%= event.address %> <br>
-  From: <%= event.start_datetime.ctime %> <br>
-  To: <%= event.end_datetime.ctime %> <br>
+  From: <%= event.start_datetime.strftime('%A %B %e %l:%M %p') %> <br>
+  To: <%= event.end_datetime.strftime('%A %B %e %l:%M %p') %> <br>
   Details: <%= event.content %> <br> <br> <br> <br> </p>
 <% end %>
