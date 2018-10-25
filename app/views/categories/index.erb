@@ -1,10 +1,17 @@
 
+
+<div class="center">
+  <h1 class="center-headings">Events Feed</h1>
+  <%= form_tag '/categories', method: :get do %>
+    <%= collection_select :event, :category_id, @categories, :id, :name%>
+    <%= submit_tag "Search by category" %>
+  <% end %>
+
+  
 Today is <%= @date %>
 
-<%= form_tag '/categories', method: :get do %>
-  <%= collection_select :event, :category_id, @categories, :id, :name%>
-  <%= submit_tag "Search by category" %>
-<% end %>
+
+</div>
 
 
 <% @events.each do |event| %>
