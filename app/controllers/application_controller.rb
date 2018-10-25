@@ -2,21 +2,10 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  helper_method :logged_in?, :log_out
+
+  helper_method :logged_in?, :logged_in_user, :log_out
 
   # config.time_zone = 'Eastern Time (US & Canada)'
-
-  # before_action :create_event
-  #
-  # def create_event
-  #   if session[:user_id]
-  #     @user = User.find(session[:user_id])
-  #     redirect_to @user
-  #   end
-  #     @message = flash[:message]
-  #     @errors = flash[:errors]
-  #     @logged_in = !!@user
-  # end
 
 
 
@@ -28,6 +17,10 @@ class ApplicationController < ActionController::Base
 #this method returns the user currently signed in
   def logged_in_user_id
     session[:user_id]
+  end
+
+  def logged_in_user
+    User.all.find(session[:user_id])
   end
 
   def log_out
