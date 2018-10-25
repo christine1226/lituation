@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
-  #
+  protect_from_forgery with: :exception
+  
+  helper_method :logged_in?
 
   config.time_zone = 'Eastern Time (US & Canada)'
 
@@ -23,14 +25,17 @@ class ApplicationController < ActionController::Base
   end
 
 #this method returns the user currently signed in
-  def logged_in_user_id
-    session[:user_id]
-  end
+  # def logged_in_user_id
+  #   session[:user_id]
+  # end
 
   def log_out
     session[:user_id] = nil
   end
 
+  def logged_in?
+    !!session[:user_id]
+  end
 
 
   #authorizes user that is logging in is the same user currently signed in

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :name, {presence:true, uniqueness:true}
 
 
+
   # def password
   #   @password ||= Password.new(password_digest)
   # end
