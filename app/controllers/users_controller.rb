@@ -34,7 +34,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     img = Cloudinary::Uploader.upload(params[:user][:picture])
     @user.picture= img['url']
-
     @user.update(user_params)
     redirect_to @user
   end
