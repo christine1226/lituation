@@ -7,7 +7,7 @@
     <img src="<%=@user.picture %>" alt="">
 
 
-    <%= button_to "Add Profile Picture", edit_user_path %>
+    <%= button_to "Add Profile Picture", edit_user_path(@user), :method => :get %>
     <% @user.events.each do |event| %>
       <ul id="eventcontainer">
         <li class="eventblock"> <%= event.category.name %> </li>
