@@ -7,15 +7,18 @@
     <img src="<%= @user.picture %>" alt="">
 
 
-      <%= link_to "Create An Event", create_new_event_path %>
-      <br>
-
-
     <%= button_to "Add Profile Picture", edit_user_path %>
     <% @user.events.each do |event| %>
-      <%= link_to event.event_name, event %>
+      <ul id="eventcontainer">
+        <li class="eventblock"> <%= event.category.name %> </li>
+        <li class="eventblock"> <%= event.event_name %> </li>
+        <li class="eventblock"> <%= event.content %> </li>
+        <li class="eventblock"> <%= event.start_datetime.ctime %> </li>
+        <li class="eventblock"> <%= event.end_datetime.ctime %> </li>
+        <li class="eventblock"> <%= event.picture %> </li>
+        <li class="eventblock"> <%= event.address %> </li>
+      </ul>
     <% end %>
-    <br>
-      <%= button_to "Create An Event", new_event_path %>
+
   </div>
 </div>
