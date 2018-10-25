@@ -27,7 +27,7 @@
       <li>
         <%= link_to "Log out", '/logout' %>
       </li>
-      <li>
+      <li class="logged">
         Logged in as: <%= @user.name %>
       </li>
       <% else %>
@@ -39,16 +39,7 @@
       </li>
       <% end %>
     </ul>
-  </nav>
-  <% if @errors %>
-  <ul>
-    <% @errors.each do |error| %>
-      <li>
-        <%= error %>
-      </li>
-    <% end %>
-        </ul>
-      </nav>
+
       <% if @errors %>
       <ul>
         <% @errors.each do |error| %>
