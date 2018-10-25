@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
       redirect_to @user
     else
-      flash[:errors] = @user.errors.full_messages
+      
       redirect_to new_user_path
     end
   end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     img = Cloudinary::Uploader.upload(params[:user][:picture])
     @user.picture= img['url']
     @user.update(user_params)
-    redirect_to @user
+    redirect_to user_path(@user), :method => :get
   end
 
   def destroy
