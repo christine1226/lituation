@@ -4,14 +4,16 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @users = User.all
+    @user = logged_in_user_id
     @categories = Category.all
   end
 
   def create
     @event = Event.new(event_params)
-    # @event[:start_datetime].asctime.in_time_zone('Eastern Time (US & Canada)')
-    # @event[:end_datetime].asctime.in_time_zone('Eastern Time (US & Canada)')
+    @event.user_id = logged_in_user_id
+    # @event.start_datetime = @event[:start_datetime].asctime.in_time_zone('Eastern Time (US & Canada)')
+    # @event.end_datetime = @event[:end_datetime].asctime.in_time_zone('Eastern Time (US & Canada)')
+
     if @event.save
       redirect_to categories_path
     else
