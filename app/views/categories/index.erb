@@ -27,9 +27,7 @@
       <li class="strt-block"><%= event.start_datetime.ctime %></li>
     </ul>
     <%= button_to '💛', new_like_path(event) , method: :post%>
-    <%= event.likes.count %>
-    <%= event.likes.count == 1||0 ? 'Like' : 'Likes' %>
-    <% liked = event.likes.find {|like| like.user_id == session[:user_id]} %>
+    <%= event.likes.count %> Likes
     </div>
   <% end %>
 </div>
