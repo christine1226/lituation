@@ -11,6 +11,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    img = Cloudinary::Uploader.upload(params[:event][:picture])
+    @event.picture= img['url']
     @event.user_id = logged_in_user_id
 
     if @event.save
