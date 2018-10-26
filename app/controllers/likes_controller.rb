@@ -2,7 +2,7 @@ class LikesController < ApplicationController
 
   before_action :find_like, only:[:destroy]
   before_action :authenticate!
-
+  before_action :liked?
 
 
 
@@ -17,30 +17,24 @@ class LikesController < ApplicationController
   # end
 
   def create_like
-    @event = Event.find(params[:id])
-    if @like = Like.create(user_id: session[:user_id], event_id: params[:id])
+    @like = Like.new(user_id: session[:user_id], event_id: params[:id])
+
+    if !liked?
+      @like.save
       redirect_to categories_path(session[:user_id])
     else
-      "You can only vote once. SORRY!"
+      flash[:notice] = "You can only vote once. SORRY!"
       redirect_to categories_path
     end
   end
 
-  # def destroy
-  #   if !(liked?)
-  #     "Can not like"
-  #   else
-  #     @like.destroy
-  #   end
-  #   redirect_to user_path(session[:user_id])
-  # end
 
 
 
   private
 
   def liked?
-    Like.where(user_id: session[:user_id], event_id: params[:event_id]).exists?
+    Like.where(user_id: session[:user_id], event_id: params[:id]).exists?
   end
 
   def find_like

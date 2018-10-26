@@ -30,6 +30,8 @@
 
     </ul>
 
+    <#= button_to '💛', new_like_path(event) , method: :post%>
+    <#= event.likes.count %> Likes
 
     </div>
   <% end %>
