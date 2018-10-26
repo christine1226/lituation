@@ -196,7 +196,17 @@ p {
    height: -webkit-fill-available;
  }
 
+.img_preview {
+  width: 140px;
+  height: 140px;
+  border-radius: none;
+}
 
+.profile-pic {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
 
  /* End of Profile Styling */
 
@@ -252,7 +262,7 @@ p {
    float: right;
  }
 
- img:hover {
+ .icons:hover {
    animation: shake 0.5s;
    animation-iteration-count: infinite;
  }

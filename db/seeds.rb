@@ -1,3 +1,8 @@
+# require 'pry'
+# require 'faker'
+# User.destroy_all
+# Category.destroy_all
+# Event.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -22,6 +27,20 @@ Category.create(name: 'animals')
 Category.create(name: 'tech')
 Category.create(name: 'education')
 Category.create(name: 'museums')
+
+# 2.times do
+#   e = Event.create(
+#     user_id: Faker::Number.between(1,3),
+#     category_id: Faker::Number.between(1,12),
+#     content: Faker::Hipster.sentences(2),
+#     event_name: Faker::Hipster.sentence(3),
+#     address: Faker::Address.full_address,
+#     picture: Faker::Avatar.image,
+#     start_datetime: Faker::Date.forward,
+#     end_datetime: Faker::Date.forward
+#   )
+#   binding.pry
+# end
 
 #default profile pic
 # "https://res.cloudinary.com/airwotever/image/upload/v1395969197/default-profile-pic_hkmqpe.png"

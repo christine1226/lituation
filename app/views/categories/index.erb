@@ -19,15 +19,20 @@
     <ul>
       <li class="eventname-block"> <%= event.event_name %> </li>
       <li class="content-block"> <%= event.content %> </li>
-      <li class="pic-block"> <%= event.picture %> </li>
+      <li class="pic-block"> <%= image_tag("#{event.picture}", height: 140, width: 140)%> </li>
       <li class="addy-block">Address: <%= event.address %> </li>
+      <li><%= link_to image_tag("goodfire.png", :alt => "fire", height: 35, width: 35), new_like_path(event) , method: :post%><%= event.likes.count %> <%= event.likes.count == 1||0 ? 'Like' : 'Likes' %></li>
       <li class="catname-block"><%= event.category.name %> </li>
+      <% liked = event.likes.find {|like| like.user_id == session[:user_id]} %>
       <li class="strt-block"><%= event.end_datetime.ctime%></li>
       <li class="strt-block">---</li>
       <li class="strt-block"><%= event.start_datetime.ctime %></li>
+
     </ul>
-    <%= button_to '💛', new_like_path(event) , method: :post%>
-    <%= event.likes.count %> Likes
+
+    <#= button_to '💛', new_like_path(event) , method: :post%>
+    <#= event.likes.count %> Likes
+
     </div>
   <% end %>
 </div>

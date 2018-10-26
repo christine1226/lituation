@@ -1,12 +1,12 @@
 
 <div class="white_background">
-<h1 class="center-headings">Profile</h1>
+<h1 class="center-headings">Hi, <%= @user.name.titleize %>!</h1>
   <div class="Profile">
 
 
 
-    <%= link_to image_tag("#{@user.picture}", height: 140, width: 140), edit_user_path(@user), :method => :get %>
-      <h1 class="name">Hi, <%= @user.name.titleize %>!</h1>
+    <%= link_to image_tag("#{@user.picture}", :class => "profile-pic"), edit_user_path(@user), :method => :get %>
+
   </div>
   <% @user.events.each do |event| %>
   <div class="event">
@@ -14,7 +14,11 @@
       <li class="eventname-block"> <%= event.event_name %> </li>
       <li class="content-block"> <%= event.content %> </li>
 
+      <li class="pic-block"> <%= image_tag("#{event.picture}", :class => "img_preview")%> </li>
+
+
       <li class="pic-block"> <%= image_tag("#{event.picture}", height: 140, width: 140)%> </li>
+
 
       <li class="addy-block">Address: <%= event.address %> </li>
       <li class="catname-block"><%= event.category.name %> </li>

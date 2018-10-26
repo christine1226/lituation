@@ -6,9 +6,10 @@
   ul {
     position: relative;
     // padding: 10px;
-    border-style: solid;
-   border-bottom-color: transparent;
-   
+    border: 1px solid;
+   // border-bottom-color: transparent;
+   text-align: center;
+   width: auto;
   }
   li {
     float: none;
@@ -16,11 +17,15 @@
 
 
     &.strt-block {
-      float: right;
+      // float: right;
       display: inline;
       font-family: 'Amatic SC', cursive;
 
     }
+
+     input[type=submit] {
+       margin-bottom: 0;
+     }
   }
   margin: 15px 0;
   background: white;
@@ -62,6 +67,8 @@ font-family: 'Amatic SC', cursive;
   font-size: 15px;
 }
 
-img {
+.icons {
   border-radius: 50%;
+  width: 35px;
+  height: 35px;
 }
