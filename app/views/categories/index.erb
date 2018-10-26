@@ -1,30 +1,35 @@
 
-
+<div class="white_background">
 <div class="center">
   <h1 class="center-headings">Events Feed</h1>
   <%= form_tag '/categories', method: :get do %>
-    <%= collection_select :event, :category_id, @categories, :id, :name%>
+    <%= collection_select :event, :category_id, @categories, :id, :name %>
     <%= submit_tag "Search by category" %>
   <% end %>
 
 
-Today is <%= @date %>
+<p >Today is <%= @date %></p>
 
 
 </div>
 
 
-<% @events.each do |event| %>
-  <h5> Category: <%= event.category.name %> </h5> <br>
-  <h3> Event: <%= event.event_name %> </h3> <br>
-  <p> At: <%= event.address %> <br>
-  From: <%= event.start_datetime.strftime('%A %B %e %l:%M %p') %> <br>
-  To: <%= event.end_datetime.strftime('%A %B %e %l:%M %p') %> <br>
-  Details: <%= event.content %> <br> <br> <br> <br> </p>
-
-
-  <%= button_to '💛', new_like_path(event) , method: :post%>
-  <%= event.likes.count %>
-  <%= event.likes.count == 1||0 ? 'Like' : 'Likes' %>
-  <% liked = event.likes.find {|like| like.user_id == session[:user_id]} %>
-<% end %>
+  <% @events.each do |event| %>
+  <div class="event">
+    <ul>
+      <li class="eventname-block"> <%= event.event_name %> </li>
+      <li class="content-block"> <%= event.content %> </li>
+      <li class="pic-block"> <%= event.picture %> </li>
+      <li class="addy-block">Address: <%= event.address %> </li>
+      <li class="catname-block"><%= event.category.name %> </li>
+      <li class="strt-block"><%= event.end_datetime.ctime%></li>
+      <li class="strt-block">---</li>
+      <li class="strt-block"><%= event.start_datetime.ctime %></li>
+    </ul>
+    <%= button_to '💛', new_like_path(event) , method: :post%>
+    <%= event.likes.count %>
+    <%= event.likes.count == 1||0 ? 'Like' : 'Likes' %>
+    <% liked = event.likes.find {|like| like.user_id == session[:user_id]} %>
+    </div>
+  <% end %>
+</div>

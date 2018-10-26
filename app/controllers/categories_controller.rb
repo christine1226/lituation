@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
     else
       @events = Event.all
     end
-
+    # byebug
     @events = @events.select{|e|e.end_datetime > now}.sort_by{|e| e.start_datetime}
     @categories = Category.all
     @date = now.strftime('%a, %B %e')
