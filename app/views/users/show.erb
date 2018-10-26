@@ -9,17 +9,21 @@
       <img src="<%=@user.picture %>" alt="">
 
     <%= button_to "Add Profile Picture", edit_user_path(@user), :method => :get %>
-    <% @user.events.each do |event| %>
-      <ul id="eventcontainer">
-        <li class="eventblock"> <%= event.category.name %> </li>
-        <li class="eventblock"> <%= event.event_name %> </li>
-        <li class="eventblock"> <%= event.content %> </li>
-        <li class="eventblock"> <%= event.start_datetime.ctime %> </li>
-        <li class="eventblock"> <%= event.end_datetime.ctime %> </li>
-        <li class="eventblock"> <%= event.picture %> </li>
-        <li class="eventblock"> <%= event.address %> </li>
-      </ul>
-    <% end %>
 
   </div>
+  <% @user.events.each do |event| %>
+  <div class="event">
+    <ul>
+      <li class="eventname-block"> <%= event.event_name %> </li>
+      <li class="content-block"> <%= event.content %> </li>
+      <li class="pic-block"> <%= event.picture %> </li>
+      <li class="addy-block">Address: <%= event.address %> </li>
+      <li class="catname-block"><%= event.category.name %> </li>
+      <li class="strt-block"><%= event.end_datetime.ctime%></li>
+      <li class="strt-block">---</li>
+      <li class="strt-block"><%= event.start_datetime.ctime %></li>
+    </ul>
+  </div>
+  <% end %>
+
 </div>
