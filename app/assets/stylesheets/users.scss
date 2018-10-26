@@ -1,3 +1,60 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.event {
+  ul {
+    position: relative;
+    padding: 10px;
+  }
+  li {
+    float: none;
+    padding: 6px;
+
+
+    &.strt-block {
+      float: right;
+      display: inline;
+      font-family: 'Amatic SC', cursive;
+
+    }
+  }
+  margin: 15px 0;
+  background: white;
+  border-radius: 25px;
+}
+
+.catname-block {
+  float: left;
+  font-family: 'Amatic SC', cursive;
+  display: inline;
+}
+
+.eventname-block {
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 22pt;
+  text-decoration: underline;
+}
+
+.content-block {
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 22px;
+}
+
+
+.end-block {
+float: right;
+display: inline;
+font-family: 'Amatic SC', cursive;
+}
+
+.pic-block {
+
+}
+
+.addy-block {
+  text-align: center;
+  font-size: 15px;
+}
