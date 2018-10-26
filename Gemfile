@@ -66,3 +66,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 #image storing cloud
 gem 'cloudinary'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'pry'
