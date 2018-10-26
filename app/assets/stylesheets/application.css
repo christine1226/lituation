@@ -163,7 +163,7 @@ p {
    background: #516A82;
    width: 200px;
    height: 30px;
-   margin-bottom: 80px;
+   margin-bottom: 44px;
    opacity: 0.9;
    border-color: #516A82;
  }
@@ -172,13 +172,20 @@ p {
 
  /* Profile Styling */
 
+.name {
+    text-align: center;
+    color: black;
+    font-family: serif;
+}
+
  .Profile {
    margin-top: 100px;
    text-align: center;
-   width: 100%;
+   width: 40%;
    margin: auto;
-   background: white;
-   border-radius: 25px;
+   background: transparent;
+   border-radius: 48%;
+
  }
 
  .white_background {

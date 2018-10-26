@@ -33,8 +33,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(logged_in_user_id)
     img = Cloudinary::Uploader.upload(params[:user][:picture])
-    @user.picture = img['url']
-    @user.save
+    @user.picture= img['url']
+    @user.update(user_params)
     redirect_to user_path(@user), :method => :get
   end
 
