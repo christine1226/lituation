@@ -1,12 +1,12 @@
 
 <div class="white_background">
-<h1 class="center-headings">Profile</h1>
+<h1 class="center-headings">Hi, <%= @user.name.titleize %>!</h1>
   <div class="Profile">
 
 
 
     <%= link_to image_tag("#{@user.picture}", height: 140, width: 140), edit_user_path(@user), :method => :get %>
-      <h1 class="name">Hi, <%= @user.name.titleize %>!</h1>
+
   </div>
   <% @user.events.each do |event| %>
   <div class="event">
