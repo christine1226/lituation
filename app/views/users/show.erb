@@ -18,6 +18,7 @@
         <li class="eventblock"> <%= event.end_datetime.ctime %> </li>
         <li class="eventblock"> <%= event.picture %> </li>
         <li class="eventblock"> <%= event.address %> </li>
+        <%= button_to "Delete Event", event, method: :delete %>
       </ul>
     <% end %>
 

@@ -21,4 +21,10 @@ Today is <%= @date %>
   From: <%= event.start_datetime.strftime('%A %B %e %l:%M %p') %> <br>
   To: <%= event.end_datetime.strftime('%A %B %e %l:%M %p') %> <br>
   Details: <%= event.content %> <br> <br> <br> <br> </p>
+
+
+  <%= button_to '💛', new_like_path(event) , method: :post%>
+  <%= event.likes.count %>
+  <%= event.likes.count == 1||0 ? 'Like' : 'Likes' %>
+  <% liked = event.likes.find {|like| like.user_id == session[:user_id]} %>
 <% end %>
